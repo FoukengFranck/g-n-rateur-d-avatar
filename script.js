@@ -26,6 +26,7 @@ function randomizeAvatar() {
     const options = avatarOptions[part];
     const choice = options[Math.floor(Math.random() * options.length)];
     setLayer(part, choice);
+    showToast("Avatar généré automatiquement !");
   }
 }
 
@@ -71,4 +72,12 @@ function downloadAvatar() {
       }
     };
   });
+}
+
+function showToast(msg) {
+  const toast = document.createElement("div");
+  toast.textContent = msg;
+  toast.className = "toast";
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
 }
